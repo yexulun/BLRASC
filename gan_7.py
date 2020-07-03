@@ -11,7 +11,7 @@ from tensorflow.contrib.framework import arg_scope
 import tensorflow as tf
 
 from utilsGan import discriminator, decoder
-from generator import Generator
+from Generator_2 import Generator
 from utilsGan import encoder
 
 def concat_elu(inputs):
