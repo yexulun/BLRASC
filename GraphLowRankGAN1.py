@@ -80,7 +80,7 @@ numIter=0
 loss_value=0
 training_loss=0
 training_loss1=0
-while numIter<1:
+while numIter<100:
     gammasC, params, P = bayesianLowrankModel(maps, params, gammasC, K, K, W)
     for i in range(batch):
         images=X[batchSize*i:batchSize*(i+1),:]/255
@@ -94,7 +94,7 @@ while numIter<1:
     training_loss = abs(training_loss) / batch
     training_loss1 = abs(training_loss1) / batch
     model.generate_and_save_images(batchSize, "", maps1)
-    print(training_loss, training_loss1, P)
+    print('First moment loss:' ,training_loss, 'Second moment loss:',  training_loss1,'Variational loss:',  P)
     training_loss = 0
     numIter = numIter + 1;
     # print(numIter)
