@@ -132,8 +132,15 @@ labelP=np.array(index1[1])+1
 
 srcLabel=y
 preLabel=index1
-preLabel=np.sort(index1[1])
-srcLabel=(np.sort(srcLabel).T)[0]
+
+srcLabel1=(np.argsort(srcLabel,0)).T
+srcLabel1=srcLabel1[0]
+srcLabel=srcLabel[srcLabel1].T
+srcLabel=srcLabel[0]
+srcLabelIndex=srcLabel1
+
+preLabel=np.array(index1[1])
+preLabel=preLabel[srcLabel1]
 
 
 print('NMI:',metrics.adjusted_mutual_info_score(preLabel, srcLabel))
